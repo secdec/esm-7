@@ -1,0 +1,18 @@
+{
+    "data_response": {
+        "data": [], 
+        "error": [], 
+        "success": true
+    }, 
+    "log_response": {
+        "log": [
+            {
+                "level": "CRITICAL", 
+                "message": "you provided an unsupported back-end database management system. Supported DBMSes are as follows: Firebird, HSQLDB, IBM DB2, Informix, Microsoft Access, Microsoft SQL Server, MySQL, Oracle, PostgreSQL, SAP MaxDB, SQLite, Sybase. If you do not know the back-end DBMS, do not provide it and sqlmap will fingerprint it for you.", 
+                "time": "06:10:55"
+            }
+        ], 
+        "success": true
+    }, 
+    "task_id": "5bd6dc85ad2bd162"
+}

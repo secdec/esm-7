@@ -1,0 +1,498 @@
+{
+    "data_response": {
+        "data": [], 
+        "error": [], 
+        "success": true
+    }, 
+    "log_response": {
+        "log": [
+            {
+                "level": "INFO", 
+                "message": "testing connection to the target URL", 
+                "time": "05:54:52"
+            }, 
+            {
+                "level": "CRITICAL", 
+                "message": "previous heuristics detected that the target is protected by some kind of WAF/IPS/IDS", 
+                "time": "05:54:52"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing if the target URL is stable", 
+                "time": "05:54:52"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "target URL is stable", 
+                "time": "05:54:53"
+            }, 
+            {
+                "level": "WARNING", 
+                "message": "heuristic (basic) test shows that GET parameter 'sort' might not be injectable", 
+                "time": "05:54:53"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing for SQL injection on GET parameter 'sort'", 
+                "time": "05:54:53"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'AND boolean-based blind - WHERE or HAVING clause'", 
+                "time": "05:54:53"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'AND boolean-based blind - WHERE or HAVING clause (Generic comment)'", 
+                "time": "05:55:06"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'Boolean-based blind - Parameter replace (DUAL)'", 
+                "time": "05:55:16"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'Boolean-based blind - Parameter replace (DUAL) (original value)'", 
+                "time": "05:55:16"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'Boolean-based blind - Parameter replace (CASE)'", 
+                "time": "05:55:16"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'Boolean-based blind - Parameter replace (CASE) (original value)'", 
+                "time": "05:55:17"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'AND boolean-based blind - WHERE or HAVING clause (MySQL comment)'", 
+                "time": "05:55:17"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause'", 
+                "time": "05:55:23"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (MAKE_SET)'", 
+                "time": "05:55:34"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (ELT)'", 
+                "time": "05:55:44"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (bool*int)'", 
+                "time": "05:55:55"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0 boolean-based blind - Parameter replace'", 
+                "time": "05:56:04"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0 boolean-based blind - Parameter replace (original value)'", 
+                "time": "05:56:05"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL < 5.0 boolean-based blind - Parameter replace'", 
+                "time": "05:56:05"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL < 5.0 boolean-based blind - Parameter replace (original value)'", 
+                "time": "05:56:05"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL boolean-based blind - Parameter replace (MAKE_SET)'", 
+                "time": "05:56:05"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL boolean-based blind - Parameter replace (MAKE_SET - original value)'", 
+                "time": "05:56:06"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL boolean-based blind - Parameter replace (ELT)'", 
+                "time": "05:56:06"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL boolean-based blind - Parameter replace (ELT - original value)'", 
+                "time": "05:56:06"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL boolean-based blind - Parameter replace (bool*int)'", 
+                "time": "05:56:06"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL boolean-based blind - Parameter replace (bool*int - original value)'", 
+                "time": "05:56:07"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0 boolean-based blind - ORDER BY, GROUP BY clause'", 
+                "time": "05:56:07"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0 boolean-based blind - ORDER BY, GROUP BY clause (original value)'", 
+                "time": "05:56:07"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL < 5.0 boolean-based blind - ORDER BY, GROUP BY clause'", 
+                "time": "05:56:08"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL < 5.0 boolean-based blind - ORDER BY, GROUP BY clause (original value)'", 
+                "time": "05:56:08"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0 boolean-based blind - Stacked queries'", 
+                "time": "05:56:09"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL < 5.0 boolean-based blind - Stacked queries'", 
+                "time": "05:56:18"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (BIGINT UNSIGNED)'", 
+                "time": "05:56:27"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXP)'", 
+                "time": "05:56:34"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.7.8 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (JSON_KEYS)'", 
+                "time": "05:56:40"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'", 
+                "time": "05:56:47"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'", 
+                "time": "05:56:53"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (UPDATEXML)'", 
+                "time": "05:56:59"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 4.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'", 
+                "time": "05:57:06"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.1 error-based - PROCEDURE ANALYSE (EXTRACTVALUE)'", 
+                "time": "05:57:12"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.5 error-based - Parameter replace (BIGINT UNSIGNED)'", 
+                "time": "05:57:17"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.5 error-based - Parameter replace (EXP)'", 
+                "time": "05:57:18"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.7.8 error-based - Parameter replace (JSON_KEYS)'", 
+                "time": "05:57:18"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0 error-based - Parameter replace (FLOOR)'", 
+                "time": "05:57:18"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.1 error-based - Parameter replace (UPDATEXML)'", 
+                "time": "05:57:18"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.1 error-based - Parameter replace (EXTRACTVALUE)'", 
+                "time": "05:57:18"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.5 error-based - ORDER BY, GROUP BY clause (BIGINT UNSIGNED)'", 
+                "time": "05:57:18"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.5 error-based - ORDER BY, GROUP BY clause (EXP)'", 
+                "time": "05:57:18"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.7.8 error-based - ORDER BY, GROUP BY clause (JSON_KEYS)'", 
+                "time": "05:57:19"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0 error-based - ORDER BY, GROUP BY clause (FLOOR)'", 
+                "time": "05:57:19"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.1 error-based - ORDER BY, GROUP BY clause (EXTRACTVALUE)'", 
+                "time": "05:57:19"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.1 error-based - ORDER BY, GROUP BY clause (UPDATEXML)'", 
+                "time": "05:57:19"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 4.1 error-based - ORDER BY, GROUP BY clause (FLOOR)'", 
+                "time": "05:57:20"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL inline queries'", 
+                "time": "05:57:20"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL > 5.0.11 stacked queries (comment)'", 
+                "time": "05:57:20"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL > 5.0.11 stacked queries'", 
+                "time": "05:57:24"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL > 5.0.11 stacked queries (query SLEEP - comment)'", 
+                "time": "05:57:30"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL > 5.0.11 stacked queries (query SLEEP)'", 
+                "time": "05:57:35"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0.12 AND time-based blind'", 
+                "time": "05:57:41"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0.12 AND time-based blind (comment)'", 
+                "time": "05:57:47"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0.12 AND time-based blind (query SLEEP)'", 
+                "time": "05:57:52"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0.12 AND time-based blind (query SLEEP - comment)'", 
+                "time": "05:57:58"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0.12 RLIKE time-based blind'", 
+                "time": "05:58:02"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0.12 RLIKE time-based blind (comment)'", 
+                "time": "05:58:08"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0.12 RLIKE time-based blind (query SLEEP)'", 
+                "time": "05:58:13"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0.12 RLIKE time-based blind (query SLEEP - comment)'", 
+                "time": "05:58:18"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL AND time-based blind (ELT)'", 
+                "time": "05:58:23"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL AND time-based blind (ELT - comment)'", 
+                "time": "05:58:29"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0.12 time-based blind - Parameter replace'", 
+                "time": "05:58:33"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0.12 time-based blind - Parameter replace (substraction)'", 
+                "time": "05:58:33"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL time-based blind - Parameter replace (bool)'", 
+                "time": "05:58:33"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL time-based blind - Parameter replace (ELT)'", 
+                "time": "05:58:33"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL time-based blind - Parameter replace (MAKE_SET)'", 
+                "time": "05:58:34"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL >= 5.0.12 time-based blind - ORDER BY, GROUP BY clause'", 
+                "time": "05:58:34"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'Generic UNION query (NULL) - 1 to 10 columns'", 
+                "time": "05:58:34"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'Generic UNION query (random number) - 1 to 10 columns'", 
+                "time": "05:59:55"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'Generic UNION query (NULL) - 11 to 20 columns'", 
+                "time": "06:01:04"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'Generic UNION query (random number) - 11 to 20 columns'", 
+                "time": "06:01:04"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'Generic UNION query (NULL) - 21 to 30 columns'", 
+                "time": "06:01:04"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'Generic UNION query (random number) - 21 to 30 columns'", 
+                "time": "06:01:04"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'Generic UNION query (NULL) - 31 to 40 columns'", 
+                "time": "06:01:04"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'Generic UNION query (random number) - 31 to 40 columns'", 
+                "time": "06:01:04"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'Generic UNION query (NULL) - 41 to 50 columns'", 
+                "time": "06:01:04"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'Generic UNION query (random number) - 41 to 50 columns'", 
+                "time": "06:01:04"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL UNION query (NULL) - 1 to 10 columns'", 
+                "time": "06:01:04"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL UNION query (random number) - 1 to 10 columns'", 
+                "time": "06:02:40"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL UNION query (NULL) - 11 to 20 columns'", 
+                "time": "06:04:23"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL UNION query (random number) - 11 to 20 columns'", 
+                "time": "06:04:23"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL UNION query (NULL) - 21 to 30 columns'", 
+                "time": "06:04:23"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL UNION query (random number) - 21 to 30 columns'", 
+                "time": "06:04:23"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL UNION query (NULL) - 31 to 40 columns'", 
+                "time": "06:04:23"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL UNION query (random number) - 31 to 40 columns'", 
+                "time": "06:04:23"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL UNION query (NULL) - 41 to 50 columns'", 
+                "time": "06:04:23"
+            }, 
+            {
+                "level": "INFO", 
+                "message": "testing 'MySQL UNION query (random number) - 41 to 50 columns'", 
+                "time": "06:04:23"
+            }, 
+            {
+                "level": "WARNING", 
+                "message": "GET parameter 'sort' does not seem to be injectable", 
+                "time": "06:04:23"
+            }, 
+            {
+                "level": "CRITICAL", 
+                "message": "all tested parameters appear to be not injectable. Try to increase '--level'/'--risk' values to perform more tests. Also, you can try to rerun by providing either a valid value for option '--string' (or '--regexp'). If you suspect that there is some kind of protection mechanism involved (e.g. WAF) maybe you could retry with an option '--tamper' (e.g. '--tamper=space2comment')", 
+                "time": "06:04:23"
+            }
+        ], 
+        "success": true
+    }, 
+    "task_id": "65d3354798518a9e"
+}

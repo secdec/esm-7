@@ -1,0 +1,18 @@
+{
+    "data_response": {
+        "data": [],
+        "error": [],
+        "success": true
+    },
+    "log_response": {
+        "log": [
+            {
+                "level": "CRITICAL",
+                "message": "invalid target URL ('http://10.0.0.4:8080/?start=0&count=10&sort=tagname')", 
+                "time": "06:07:20"
+            }
+        ],
+        "success": true
+    },
+    "task_id": "431e1fc949c94b04"
+}

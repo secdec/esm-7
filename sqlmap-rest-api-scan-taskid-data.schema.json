@@ -1,0 +1,54 @@
+{
+  "$id": "http://sqlmap.org/sqlmap-rest-api-scan-taskid-data.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+
+  "description": "The output of the sqlmap REST API call to /scan/<taskid>/data",
+
+  "definitions": {
+    "data_message": {
+      "type": "object",
+      "description": "A data message",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "The data message content status (i.e., 0=IN_PROGRESS or 1=COMPLETE)"
+        },
+        "type": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 25,
+          "description": "The data message content type (e.g., 0=TARGET, 3=BANNER)"
+        },
+        "value": {
+          "type": "object",
+          "description": "The data message value"
+        }
+      },
+      "required": ["status", "type", "value"]
+    }
+  },
+
+  "type": "object",
+  "properties": {
+    "success":  {
+        "description": "Whether or not the request for results data was successful",
+        "type": "boolean"
+    },
+    "error":  {
+        "description": "A list of errors (if any)",
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+    },
+    "data":  {
+      "type": "array",
+      "description": "A list of data message (if any)",
+      "items": {
+        "$ref": "#/definitions/data_message"
+      }
+    },
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$id": "http://sqlmap.org/sqlmap-rest-api-scan-taskid-log.schema.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+
+  "description": "The output of the sqlmap REST API call to /scan/<taskid>/log",
+
+  "definitions": {
+    "log_message": {
+      "type": "object",
+      "description": "A log message",
+      "properties": {
+        "level": {
+          "type": "string",
+          "enum": ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL",
+              "PAYLOAD", "TRAFFIC OUT", "TRAFFIC IN"],
+          "description": "Level of the log entry"
+        },
+        "message": {
+          "type": "string",
+          "description": "The log entry message"
+        },
+        "time": {
+          "type": "string",
+          "pattern": "^([01]\\d|2[0-3]):([0-5]\\d):([0-5]\\d)$",
+          "description": "The timestamp (HH:mm) of the log entry"
+        }
+      },
+      "required": ["level", "message", "time"]
+    },
+  },
+
+  "type": "object",
+  "properties": {
+    "log": {
+      "type": "array",
+      "description": "A list of log messages",
+      "items": {
+        "$ref": "#/definitions/log_message"
+      }
+    },
+    "success": {
+      "type": "boolean",
+      "description": "Whether or not the request for the log data was successful"
+    }
+  }
+}

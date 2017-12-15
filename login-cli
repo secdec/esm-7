@@ -1,0 +1,90 @@
+#!/bin/bash
+
+##
+## Utility script that executes an HTTP request for the purposes of
+##   receiving a session cookie and (optionally) authenticating
+##
+## Application Security Threat Attack Modeling (ASTAM)
+##
+## Copyright (C) 2017 Applied Visions - http://securedecisions.com
+##
+## Written by Aspect Security - http://aspectsecurity.com
+##
+## Licensed under the Apache License, Version 2.0 (the "License");
+## you may not use this file except in compliance with the License.
+## You may obtain a copy of the License at
+##
+##     http://www.apache.org/licenses/LICENSE-2.0
+##
+## Unless required by applicable law or agreed to in writing, software
+## distributed under the License is distributed on an "AS IS" BASIS,
+## WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+## See the License for the specific language governing permissions and
+## limitations under the License.
+##
+
+red='\033[0;31m'
+green='\033[0;32m'
+nocolor='\033[0m'
+
+function printHelp {
+  echo "Usage: $(basename $1) [-c] [-n] [-p data] [-h] URL"
+  echo "  -c: produce Netscape cookie file; the default is name=value pairs"
+  echo "  -n: do not authenticate, just grab the cookies"
+  echo "  -p: POST data for authentication"
+  echo "  -h: help"
+  exit
+}
+
+function fatalError {
+  echo -e "${red}ERROR: $@ ${nocolor}" >&2
+  exit
+}
+
+function parseCookies {
+  # egrep filters out comments and empty lines
+  # awk extracts cookie values and prints name=value; pairs
+  egrep -v '^# |^$' | awk 'BEGIN {OFS="="; ORS=";"} {print $6,$7}'
+}
+
+function runCurl {
+  curlBase="curl -skL -o /dev/null -c -"
+  if [[ "${netscape}" ]]; then
+    ${curlBase} "$@"
+  else
+    ${curlBase} "$@" | parseCookies
+  fi
+}
+
+# anything on the command line?
+if [[ "$#" = "0" ]]; then
+  printHelp $0
+fi
+
+# parse command line options
+OPTIND=1
+while getopts "cnp:h" opt; do
+  case "${opt}" in
+    c) netscape=1            ;;
+    n) noauth=1              ;;
+    p) post=${OPTARG}        ;;
+    r) requestfile=${OPTARG} ;;
+    *) printHelp $0          ;;
+  esac
+done
+shift $((OPTIND-1))
+URL=$@
+
+# do we have a URL?
+if [[ -z "${URL}" ]]; then
+  fatalError "URL must be specified"
+fi
+
+# let's do something already!
+if [[ "${noauth}" ]]; then
+  # just run curl to get cookies
+  runCurl "${URL}"
+else
+  # authenticate
+  runCurl -d "${post}" "${URL}"
+fi

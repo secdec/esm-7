@@ -1,0 +1,18 @@
+{
+    "data_response": {
+        "data": [], 
+        "error": [], 
+        "success": true
+    }, 
+    "log_response": {
+        "log": [
+            {
+                "level": "CRITICAL", 
+                "message": "all testable parameters you provided are not present within the given request data", 
+                "time": "06:09:43"
+            }
+        ], 
+        "success": true
+    }, 
+    "task_id": "568bf21b76539646"
+}

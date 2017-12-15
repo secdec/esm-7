@@ -1,0 +1,150 @@
+#!/bin/bash
+
+##
+## "Enhanced SqlMap" script to execute a CAPEC-7 attack
+##
+## Orchestrates various utilities to derive associated parameters to drive
+##   sqlmap scan via its REST API. 
+##
+## Application Security Threat Attack Modeling (ASTAM)
+##
+## Copyright (C) 2017 Applied Visions - http://securedecisions.com
+##
+## Written by Aspect Security - https://aspectsecurity.com
+##
+## Licensed under the Apache License, Version 2.0 (the "License");
+## you may not use this file except in compliance with the License.
+## You may obtain a copy of the License at
+##
+##     http://www.apache.org/licenses/LICENSE-2.0
+##
+## Unless required by applicable law or agreed to in writing, software
+## distributed under the License is distributed on an "AS IS" BASIS,
+## WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+## See the License for the specific language governing permissions and
+## limitations under the License.
+##
+
+red='\033[0;31m'
+green='\033[0;32m'
+nocolor='\033[0m'
+
+function printHelp {
+  echo "Usage: $(basename $1) attackfile resultsfile"
+  echo "  -v: verbose"
+  echo "  -h: help"
+  exit
+}
+
+function fatalError {
+  echo -e "${red}ERROR: $1 ${nocolor}" >&2
+  exit
+}
+
+function say {
+  if [[ "${verbose}" ]]; then
+    echo -e "${green}$@ ${nocolor}"
+  fi
+}
+
+function progress {
+  if [[ "${verbose}" ]]; then
+    echo -ne "${green}$@ ${nocolor}"
+  fi
+}
+
+# global variables
+topDir=$(dirname "$0")
+loginCli="${topDir}/login-cli"
+apiURL="http://127.0.0.1:8775"
+
+# anything on the command line?
+if [[ "$#" = "0" ]]; then
+  printHelp "$0"
+fi
+
+# parse options
+OPTIND=1
+while getopts "vh" opt; do
+  case "${opt}" in
+    v) verbose=1    ;;
+    *) printHelp "$0" ;;
+  esac
+done
+shift $((OPTIND-1))
+
+if [[ $# -ne 2 ]]; then
+  printHelp $0
+fi
+attackfile=$1
+resultsFile=$2
+
+# do we have attack configuration?
+if [[ ! "${attackfile}" ]]; then
+  fatalError "attackfile must be specified"
+fi
+if [[ ! -f "${attackfile}" ]]; then
+  fatalError "${attackfile} does not exist"
+fi
+if [[ ! -r $attackfile ]]; then
+  fatalError "$attackfile cannot be read"
+fi                                                                                                                                         
+
+say "loading attack configuration file (${attackfile})..."
+. "${attackfile}"
+
+if [[ ! "${sqliURL}" ]]; then
+  fatalError "SQL injection target URL must be specified"
+fi
+
+say "got target URL ${sqliURL}"
+
+if [[ "${loginURL}" ]]; then
+  say "login URL: ${loginURL}"
+  if [[ ! "${loginPOST}" ]]; then
+    say "no login POST data - just grabbing session cookies..."
+    cookies=$("$loginCli" -n "${loginURL}")
+  else
+    say "attempting to authenticate..."
+    cookies=$("$loginCli" -p "${loginPOST}" "${loginURL}")
+  fi
+  if [[ ! "${cookies}" ]]; then
+    say "no cookies obtained - make sure the login data are correct"
+  else
+    say "obtained session cookies: ${cookies}"
+  fi
+fi
+
+# set the initial sqlmap REST api options
+attackOpt='{ "level": 5, "getBanner": true, "batch": true, "answers": "redirect to=N,detect backend=N,extended UNION=Y,extending provided risk=N,keep testing the others=N"'
+
+# process the configuration parameters and set sqlmap options
+# note double quote escaping: ${var//\"/\\\"}
+if [[ "${sqliPOST}" ]]; then
+  attackOpt="${attackOpt}, \"data\": \"${sqliPOST//\"/\\\"}\""
+fi
+
+if [[ "${sqliParam}" ]]; then
+  attackOpt="${attackOpt}, \"testParameter\": \"${sqliParam//\"/\\\"}\""
+fi
+
+# even though dbms is not in the list of supported parameters,
+# it does get added to the options object for a new scan, and does have effect
+if [[ "${sqliDB}" ]]; then
+  attackOpt="${attackOpt}, \"dbms\": \"${sqliDB}\""
+fi
+
+if [[ "${cookies}" ]]; then
+  attackOpt="${attackOpt}, \"cookie\": \"${cookies//\"/\\\"}\""
+fi
+
+attackOpt="${attackOpt}, \"url\": \"${sqliURL//\"/\\\"}\""
+
+# close the options
+attackOpt="${attackOpt} }"
+
+# let the sqlmap API client do the work
+if [[ "${verbose}" ]]; then
+  vOpt='-v'
+fi
+${topDir}/sqlmap-client ${vOpt} "${apiURL}" "${attackOpt}" "${resultsFile}"
